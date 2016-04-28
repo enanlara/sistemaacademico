@@ -12,5 +12,10 @@ function get_footer() {
 }
 
 function Redirecionar($modulo) {
-    header('Location: ' . $_SERVER['DOCUMENT_ROOT'] . '/modules/' . $modulo . '/' . $modulo . '.php');
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/modules/' . $modulo . '/' . $modulo . '.php', true, 301);
+    exit;
+}
+
+function RedirecionarJs($modulo) {
+    echo "<script> location.href= 'http://" . $_SERVER['HTTP_HOST'] . "/modules/" . $modulo . "/" . $modulo . ".php'; </script>";
 }
