@@ -3,4 +3,4 @@
 require_once 'DB.php';
 $DB = new DB();
 
-$DB->Conecta('localhost', '', 'root', 'root');
+$DB->Conecta('localhost', '', 'root', '');

@@ -22,9 +22,8 @@ class LoginController extends ControllerDefault {
                 break;
         }
         
-        parent::MostraView('login/login_view.php');
+        parent::MostraView('login');
         
-        // abaixo disso ficarão os métodos adicionais, caso tenha
     }
     
 }
