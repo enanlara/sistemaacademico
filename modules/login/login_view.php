@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -18,8 +20,8 @@ and open the template in the editor.
         <link rel="stylesheet" href="/assets/css/login.css">
     </head>
     <body>
-        <div class="container-fluid animated bounceInDown">
-            <div class="row">
+        <div class="container-fluid">
+            <div class="row animated bounceInDown">
                 <center>
                     <img src="/assets/img/logo.png" style="margin-top: 70px">
                     <br> 
@@ -28,13 +30,13 @@ and open the template in the editor.
 
             <div class="row">
                 <div class="col-lg-4"></div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 animated bounceInLeft">
 
                     <div class="container-fluid" style="margin-top:20px">
                         <form action="?acao=login" method="POST" enctype="multpart/formdata">
                             <div class="form-group">
                                 <label for="email">Email: </label>
-                                <input type="email" name="email" class="form-control" autofocus="" placeholder="email@email.com">
+                                <input type="text" name="email" class="form-control" autofocus="" placeholder="email@email.com">
                             </div>
                             <div class="form-group">
                                 <label for="senha">Senha: </label>

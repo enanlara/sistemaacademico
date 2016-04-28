@@ -3,6 +3,6 @@
 class LoginAdo extends DB {
     
     function Login() {
-        //@todo
+        return true;
     }
 }

@@ -65,5 +65,5 @@
 
                 <div class="container-fluid">
                     <div class="row">
-                        <a id="menu-toggle" class="btn btn-default" style="margin: 10px"><i class="fa fa-bars"></i></a>
+                        <div id="botao_menu"></div>
                     </div>
