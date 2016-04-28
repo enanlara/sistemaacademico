@@ -20,7 +20,7 @@ and open the template in the editor.
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
             <center>
-                <h1 style="margin-top: 20%">Sistema Academico</h1>
+                <img src="/assets/img/SistemaAcademico.png">
                 <br>
                 <h4>Para acessar, efetue seu login abaixo: </h4>
             </center>

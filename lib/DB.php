@@ -14,6 +14,7 @@ class DB {
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            
         } catch (PDOException $ex) {
 
             die('Erro ao conectar com o banco de dados, mais informações: <br><br> ' . $ex->getMessage());

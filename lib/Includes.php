@@ -3,7 +3,7 @@
 set_include_path($_SERVER['DOCUMENT_ROOT'] . '/lib/');
 
 require_once 'ControllerDefault.php';
-require_once 'DB.php';
+require_once 'Config.php';
 
 function RequireMVC($module) {
     require_once $module . '_ado.php';
