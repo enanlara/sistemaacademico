@@ -12,15 +12,17 @@ class LoginController extends ControllerDefault {
             case 'login':
                 
                 if($LoginAdo->Login()) {
-                    
+                    // redirecionar para home
                 } else {
-                    
+                    // mostrar mensagem de erro
                 }
                 
                 break;
         }
         
         parent::MostraView('login/login_view.php');
+        
+        // abaixo disso ficarão os métodos adicionais, caso tenha
     }
     
 }
