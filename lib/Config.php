@@ -6,4 +6,4 @@ require_once 'Sessao.php';
 $DB         = new DB();
 $Sessao     = new Sessao();
 
-$DB->Conecta('localhost', '', 'root', '');
+$DB->Conecta('localhost', 'Academico', 'root', 'root');
