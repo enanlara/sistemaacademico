@@ -14,8 +14,7 @@ class LoginAdo extends DB {
         $sql = "SELECT * FROM usuarios WHERE usua_email = ?   ";
         $resultado = $DB->GetObject($sql, array($email));
         
-        
-        if($resultado->usua_senha == $senha){
+        if($resultado->usua_senha == $senha) {
             return TRUE;
         }  else {
             return FALSE;

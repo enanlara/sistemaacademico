@@ -40,12 +40,13 @@
                         </li>
 
                         <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                            <a href="#"><i class="fa fa-gift fa-lg"></i> Menus <span class="arrow"></span></a>
+                            <a href="#"><i class="fa fa-gift fa-lg"></i> Cadastros <span class="arrow"></span></a>
                         </li>
                         <ul class="sub-menu collapse" id="products">
                             <li class="active"><a href="#">Opcoes</a></li>
-                            <li><a href="#">Opcoes</a></li>
-                            <li><a href="#">Opcoes</a></li>
+                            <li><a href="#">Alunos</a></li>
+                            <li><a href="#">Matérias</a></li>
+                            <li><a href="#">Professores</a></li>
                         </ul>
                         <li>
                             <a href="#">
