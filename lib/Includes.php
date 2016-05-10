@@ -5,6 +5,7 @@ set_include_path($_SERVER['DOCUMENT_ROOT'] . '/lib/');
 require_once 'ControllerDefault.php';
 require_once 'Config.php';
 require_once 'Funcoes.php';
+require_once 'FuncoesView.php';
 
 function RequireMVC($module) {
     require_once $module . '_ado.php';

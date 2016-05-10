@@ -19,3 +19,9 @@ function Redirecionar($modulo) {
 function RedirecionarJs($modulo) {
     echo "<script> location.href= 'http://" . $_SERVER['HTTP_HOST'] . "/modules/" . $modulo . "/" . $modulo . ".php'; </script>";
 }
+
+function _debug($array) {
+    echo "<pre>";
+    print_r($array);
+    echo "</pre>";
+}
