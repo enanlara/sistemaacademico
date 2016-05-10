@@ -22,3 +22,20 @@ function MontaFormulario($ArrayCampos, $Model)
 
     return $html;
 }
+
+function MontaBotoes($acao) {
+
+    switch ($acao) {
+        case 'consulta':
+
+            break;
+
+        case 'alteracao':
+            
+            break;
+
+        case 'cadastro':
+
+            break;
+    }
+}

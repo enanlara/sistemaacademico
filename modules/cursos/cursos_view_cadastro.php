@@ -15,10 +15,9 @@ $ArrayCampos[] = array("name" => "curs_id", "type" => "hidden", "label" => "");
 
         <?= MontaFormulario($ArrayCampos, $Model) ?>
 
-        <input type="hidden" class="btn btn-primary" value="cadastrar" name="acao">
-
+        <?= MontaBotoes($acao) ?>
         <button type="button" onclick="window.history.back();" class="btn btn-default"> Voltar</button>
-        <input type="submit" name="btnSalvar" value="Salvar" class="btn btn-primary">
+        <button type="submit" name="acao" value="Salvar" class="btn btn-primary"> Salvar </button>
     </form>
 
 <?php

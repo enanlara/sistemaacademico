@@ -34,12 +34,12 @@ class CursosController extends ControllerDefault
 
                 switch ($modo) {
                     case 'consulta':
-                        parent::MostraView('cursos', $this->CursosModel, 'consulta');
+                        parent::MostraView('cursos_view_consulta', $this->CursosModel, 'consulta');
 
                         break;
 
                     case 'cadastro':
-                        parent::MostraView('cursos', $this->CursosModel, 'cadastro');
+                        parent::MostraView('cursos_view_cadastro', $this->CursosModel, 'cadastro');
 
                         break;
                 }
@@ -53,7 +53,7 @@ class CursosController extends ControllerDefault
     {
         $this->CursosModel = $this->CursosAdo->ConsultaCurso();
 
-        parent::MostraView('cursos', $this->CursosModel, 'cadastro');
+        parent::MostraView('cursos_view_consulta', $this->CursosModel, 'cadastro');
     }
 
     function Cadastro() {
