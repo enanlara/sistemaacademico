@@ -3,7 +3,7 @@
 require_once 'DB.php';
 require_once 'Sessao.php';
 
-$db         = new DB();
+$DB         = new DB();
 $Sessao     = new Sessao();
 
-$db->Conecta('localhost', 'academico', 'root', 'root');
+$DB->Conecta('localhost', 'Academico', 'root', 'root');
