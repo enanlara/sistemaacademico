@@ -21,7 +21,7 @@ $CursosAdo = new CursosAdo();
         </select>
 
         <br>
-        <input type="hidden" class="btn btn-primary" value="consulta" name="acao">
+
         <?= MontaBotoes($acao) ?>
     </form>
 <?php

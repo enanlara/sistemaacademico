@@ -29,7 +29,7 @@ function MontaBotoes($acao)
     switch ($acao) {
         case 'consulta':
 
-            $botao = "<button type=\"submit\" class=\"btn btn-primary\" value=\"consultar\" name=\"consulta\"> Consultar </button>";
+            $botao = "<button type=\"submit\" class=\"btn btn-primary\" value=\"consulta\" name=\"acao\"> Consultar </button>";
 
             break;
 
@@ -37,7 +37,7 @@ function MontaBotoes($acao)
             $botao = "
                         <button type=\"button\" onclick=\"window.history.back();\" class=\"btn btn-default\"> Voltar</button>
                         <button type=\"submit\" name=\"acao\" value=\"excluir\" class=\"btn btn-danger\"> Excluir </button>
-                        <button type=\"submit\" name=\"acao\" value=\"salvar\" class=\"btn btn-primary\"> Salvar </button>
+                        <button type=\"submit\" name=\"acao\" value=\"alterar\" class=\"btn btn-primary\"> Salvar </button>
                     ";
 
             break;

@@ -7,6 +7,7 @@ class CursosController extends ControllerDefault
 
     function __construct()
     {
+        //var_dump($_POST);
         $this->CursosAdo = new CursosAdo();
         $this->CursosModel = new CursosModel();
 
@@ -26,6 +27,16 @@ class CursosController extends ControllerDefault
 
             case 'salvar':
                 $this->Cadastro();
+
+                break;
+
+            case 'alterar':
+                $this->Alterar();
+
+                break;
+
+            case 'excluir':
+                $this->Excluir();
 
                 break;
 
@@ -56,9 +67,33 @@ class CursosController extends ControllerDefault
         parent::MostraView('cursos_view_cadastro', $this->CursosModel, 'alteracao');
     }
 
-    function Cadastro() {
-        
-        $this->CursosAdo->CadastraCurso();
+    function Cadastro()
+    {
+
+        $res = $this->CursosAdo->CadastraCurso();
+
+        if ($res) {
+            parent::MostraView('cursos_view_consulta', $this->CursosModel, 'consulta');
+        }
+
+    }
+
+    function Alterar()
+    {
+        $res = $this->CursosAdo->AlteraCurso();
+
+        if ($res) {
+            parent::MostraView('cursos_view_consulta', $this->CursosModel, 'consulta');
+        }
+    }
+
+    function Excluir() {
+
+        $res = $this->CursosAdo->DeletaCurso();
+
+        if ($res) {
+            parent::MostraView('cursos_view_consulta', $this->CursosModel, 'consulta');
+        }
 
     }
 

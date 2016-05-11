@@ -10,6 +10,22 @@ class CursosAdo extends AdoDefault {
         return $db->ExecutaSQL($Insert['sql'], $Insert['valores']);
     }
 
+    function AlteraCurso() {
+        global $db;
+
+        $Update = parent::GerarUpdateSql('cursos', $campo_where = 'curs_id');
+
+        return $db->ExecutaSQL($Update['sql'], $Update['valores']);
+    }
+
+    function DeletaCurso() {
+        global $db;
+
+        $Delete = parent::GerarDeleteSql('cursos', $campo_where = 'curs_id');
+
+        return $db->ExecutaSQL($Delete['sql'], $Delete['valores']);
+    }
+
     function ConsultaCurso() {
         global $db;
 

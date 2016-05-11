@@ -7,7 +7,6 @@ get_head('Cursos');
     <br><br>
 
 <?php
-echo $acao;
 $ArrayCampos[] = array("name" => "curs_id", "type" => "hidden", "label" => "");
 $ArrayCampos[] = array("name" => "curs_nome", "type" => "text", "label" => "Nome do curso");
 ?>
@@ -17,7 +16,7 @@ $ArrayCampos[] = array("name" => "curs_nome", "type" => "text", "label" => "Nome
         <?= MontaFormulario($ArrayCampos, $Model) ?>
 
         <?= MontaBotoes($acao) ?>
-        
+
     </form>
 
 <?php

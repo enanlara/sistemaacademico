@@ -84,6 +84,9 @@ class DB
             } else {
                 $query->execute($valores);
             }
+
+            return true;
+
         } catch (Exception $ex) {
             echo $ex->getMessage();
 
