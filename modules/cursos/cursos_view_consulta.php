@@ -22,7 +22,7 @@ $CursosAdo = new CursosAdo();
 
         <br>
         <input type="hidden" class="btn btn-primary" value="consulta" name="acao">
-        <input type="submit" class="btn btn-primary" value="Consultar" name="consulta">
+        <?= MontaBotoes($acao) ?>
     </form>
 <?php
 get_footer();

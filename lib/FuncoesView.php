@@ -23,19 +23,34 @@ function MontaFormulario($ArrayCampos, $Model)
     return $html;
 }
 
-function MontaBotoes($acao) {
+function MontaBotoes($acao)
+{
 
     switch ($acao) {
         case 'consulta':
 
+            $botao = "<button type=\"submit\" class=\"btn btn-primary\" value=\"consultar\" name=\"consulta\"> Consultar </button>";
+
             break;
 
         case 'alteracao':
-            
+            $botao = "
+                        <button type=\"button\" onclick=\"window.history.back();\" class=\"btn btn-default\"> Voltar</button>
+                        <button type=\"submit\" name=\"acao\" value=\"excluir\" class=\"btn btn-danger\"> Excluir </button>
+                        <button type=\"submit\" name=\"acao\" value=\"salvar\" class=\"btn btn-primary\"> Salvar </button>
+                    ";
+
             break;
 
         case 'cadastro':
 
+            $botao = "
+                        <button type=\"button\" onclick=\"window.history.back();\" class=\"btn btn-default\"> Voltar</button>
+                        <button type=\"submit\" name=\"acao\" value=\"salvar\" class=\"btn btn-primary\"> Salvar </button>
+                    ";
+
             break;
     }
+
+    return $botao;
 }

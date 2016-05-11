@@ -24,7 +24,7 @@ class CursosController extends ControllerDefault
 
                 break;
 
-            case 'cadastrar':
+            case 'salvar':
                 $this->Cadastro();
 
                 break;
@@ -53,12 +53,12 @@ class CursosController extends ControllerDefault
     {
         $this->CursosModel = $this->CursosAdo->ConsultaCurso();
 
-        parent::MostraView('cursos_view_consulta', $this->CursosModel, 'cadastro');
+        parent::MostraView('cursos_view_cadastro', $this->CursosModel, 'alteracao');
     }
 
     function Cadastro() {
         
-//        $this->CursosAdo->
+        $this->CursosAdo->CadastraCurso();
 
     }
 

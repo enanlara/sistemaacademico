@@ -1,9 +1,13 @@
 <?php
 
-class CursosAdo {
+class CursosAdo extends AdoDefault {
     
     function CadastraCurso() {
         global $db;
+        
+        $Insert = parent::GerarInsertSql('cursos');
+        
+        return $db->ExecutaSQL($Insert['sql'], $Insert['valores']);
     }
 
     function ConsultaCurso() {
