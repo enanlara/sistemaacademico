@@ -34,7 +34,7 @@
 
             <ul id="menu-content" class="menu-content collapse in">
                 <li>
-                    <a href="#">
+                    <a href="/modules/home/home.php">
                         <i class="fa fa-home fa-lg"></i> Inicio
                     </a>
                 </li>
@@ -52,8 +52,8 @@
                     <a href="#"><i class="fa fa-gift fa-lg"></i> Professor <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="professor">
-                    <li class="active">Consultar<a href="#"></a></li>
-                    <li><a href="#">Cadastrar Novo</a></li>
+                    <li class="active"> <a href="/modules/professor/professor.php?modo=consulta"> Consultar </a></li>
+                    <li><a href="/modules/professor/professor.php?modo=cadastro">Cadastrar Novo</a></li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#cursos" class="collapsed active">
@@ -63,9 +63,16 @@
                     <li class="active"><a href="/modules/cursos/cursos.php?modo=consulta">Consultar</a></li>
                     <li><a href="/modules/cursos/cursos.php?modo=cadastro">Cadastrar novo</a></li>
                 </ul>
+                <li data-toggle="collapse" data-target="#disciplina" class="collapsed active">
+                    <a href="#"><i class="fa fa-gift fa-lg"></i> Disciplinas <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="disciplina">
+                    <li class="active"><a href="/modules/disciplina/disciplina.php?modo=consulta">Consultar</a></li>
+                    <li><a href="/modules/disciplina/disciplina.php?modo=cadastro">Cadastrar novo</a></li>
+                </ul>
 
                 <li>
-                <a href="#">
+                    <a href="#">
                         <i class="fa fa-user fa-lg"></i> Perfil
                     </a>
                 </li>

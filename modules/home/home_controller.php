@@ -16,6 +16,6 @@ class HomeController extends ControllerDefault {
                 break;
         }
         
-        parent::MostraView('home', $this->HomeModel);
+        parent::MostraView('home_view', $this->HomeModel);
     }
 }

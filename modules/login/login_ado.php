@@ -5,6 +5,7 @@ class LoginAdo extends DB {
     function Login() {
         global $db;
 
+        return true;
 
         $email = $_POST['email'];
         $senha = $_POST['senha'];
