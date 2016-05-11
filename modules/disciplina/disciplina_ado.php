@@ -29,7 +29,6 @@ class DisciplinaAdo extends AdoDefault {
     function ConsultaDisciplina() {
         global $db;
 
-        var_dump($_POST);
         $disc_id = $_POST['disc_id'];
 
         $sql = "SELECT * FROM disciplina WHERE disc_id = ?";

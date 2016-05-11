@@ -3,7 +3,7 @@
 class ProfessorController extends ControllerDefault
 {
 
-    public $ProfessorAdo, $ProfessorModel;
+    public $ProfessorAdo, $ProfessorModel, $acao;
 
     function __construct()
     {
@@ -40,6 +40,11 @@ class ProfessorController extends ControllerDefault
 
                 break;
 
+            case 'adicionar_disc':
+                $this->Consulta();
+
+                break;
+
             default:
                 $modo = (isset($_GET['modo'])) ? $_GET['modo'] : null;
 
@@ -53,10 +58,15 @@ class ProfessorController extends ControllerDefault
                         parent::MostraView('professor_view_cadastro', $this->ProfessorModel, 'cadastro');
 
                         break;
+
+                    case 'responsavel':
+                        parent::MostraView('professor_view_consulta', $this->ProfessorModel, 'adicionar_disc');
                 }
 
                 break;
         }
+
+        parent::MostraView('professor_view_consulta', $this->ProfessorModel, $this->acao);
 
     }
 
@@ -64,7 +74,7 @@ class ProfessorController extends ControllerDefault
     {
         $this->ProfessorModel = $this->ProfessorAdo->ConsultaProfessor();
 
-        parent::MostraView('professor_view_cadastro', $this->ProfessorModel, 'alteracao');
+
     }
 
     function Cadastro()
@@ -96,5 +106,7 @@ class ProfessorController extends ControllerDefault
         }
 
     }
+
+
 
 }
