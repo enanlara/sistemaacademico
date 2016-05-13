@@ -40,11 +40,11 @@
                 </li>
 
                 <li data-toggle="collapse" data-target="#estudante" class="collapsed active">
-                    <a href="#"><i class="fa fa-gift fa-lg"></i> Estudante <span class="arrow"></span></a>
+                    <a href="#"><i class="fa fa-gift fa-lg"></i> Estudantes <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="estudante">
-                    <li class="active"><a href="#">Opcoes</a></li>
-                    <li><a href="#">Opcoes</a></li>
+                    <li class="active"><a href="#">Consultar</a></li>
+                    <li><a href="#">Cadastrar Novo</a></li>
                     <li><a href="#">Opcoes</a></li>
                 </ul>
 
