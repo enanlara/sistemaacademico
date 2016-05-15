@@ -2,6 +2,21 @@
 get_head('Professor');
 $ProfessorAdo = new ProfessorAdo();
 ?>
+    <script>
+        $(document).ready(function () {
+            $("#responsavel").click(function () {
+                var id = $("select").val();
+
+                if (id == '') {
+                    alert("Escolha um professor.");
+                    return;
+                }
+
+                $("form").attr("action", "?modo=responsavel&id=" + id);
+            })
+        })
+
+    </script>
 
     <h1>Professor</h1>
 
@@ -10,7 +25,8 @@ $ProfessorAdo = new ProfessorAdo();
     <br>
     <form action="" method="POST" enctype="multipart/form-data">
         <select class="form-control" name="prof_id">
-            <option value''> Selecione um professor.. </option>
+            <option value
+            ''> Selecione um professor.. </option>
             <?php
             $Lista = $ProfessorAdo->ListaProfessor();
 
@@ -22,9 +38,10 @@ $ProfessorAdo = new ProfessorAdo();
 
         <br>
 
-        <button type="button" onclick="window.history.back();" class="btn btn-default"> Voltar</button>
-        <button type="submit" name="acao" value="editar" class="btn btn-primary"> Editar </button>
-        <button type="submit" name="acao" value="adicionar_disc" class="btn btn-primary"> Adicionar disciplinas </button>
+        <?= MontaBotoes($modo) ?>
+        <button type="submit" name="acao" value="adicionar_disc" id="responsavel" class="btn btn-primary"> Adicionar
+            disciplinas
+        </button>
 
     </form>
 <?php

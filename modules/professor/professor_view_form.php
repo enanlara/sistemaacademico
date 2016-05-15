@@ -15,7 +15,7 @@ $ArrayCampos[] = array("name" => "prof_nome", "type" => "text", "label" => "Nome
 
         <?= MontaFormulario($ArrayCampos, $Model) ?>
 
-        <?= MontaBotoes($acao) ?>
+        <?= MontaBotoes($modo) ?>
 
     </form>
 

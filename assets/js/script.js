@@ -13,5 +13,15 @@ $(document).ready(function () {
         $("#wrapper").toggleClass("toggled");
     });
 
+    $("#BtnEditar").click(function () {
+        var id = $("select").val();
+
+        if (id == '') {
+            alert("Escolha uma opção.");
+            return;
+        }
+
+        $("form").attr('action', '?modo=form&id=' + id);
+    });
 
 });

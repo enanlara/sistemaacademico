@@ -12,7 +12,7 @@ function get_footer() {
 }
 
 function Redirecionar($modulo) {
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/modules/' . $modulo . '/' . $modulo . '.php', true, 301);
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/modules/' . $modulo . '/' . $modulo . '.php?modo=consulta', true, 301);
     exit;
 }
 

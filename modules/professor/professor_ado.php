@@ -1,16 +1,20 @@
 <?php
 
-class ProfessorAdo extends AdoDefault {
-    
-    function CadastraProfessor() {
+class ProfessorAdo extends AdoDefault
+{
+
+
+    function CadastraProfessor()
+    {
         global $db;
-            
+
         $Insert = parent::GerarInsertSql('professor');
-        
+
         return $db->ExecutaSQL($Insert['sql'], $Insert['valores']);
     }
 
-    function AlteraProfessor() {
+    function AlteraProfessor()
+    {
         global $db;
 
         $Update = parent::GerarUpdateSql('professor', $campo_where = 'prof_id');
@@ -18,7 +22,8 @@ class ProfessorAdo extends AdoDefault {
         return $db->ExecutaSQL($Update['sql'], $Update['valores']);
     }
 
-    function DeletaProfessor() {
+    function DeletaProfessor()
+    {
         global $db;
 
         $Delete = parent::GerarDeleteSql('professor', $campo_where = 'prof_id');
@@ -26,22 +31,39 @@ class ProfessorAdo extends AdoDefault {
         return $db->ExecutaSQL($Delete['sql'], $Delete['valores']);
     }
 
-    function ConsultaProfessor() {
+    function ConsultaProfessor()
+    {
         global $db;
-
-        $prof_id = $_POST['prof_id'];
+        $this->prof_id = (isset($_POST['prof_id'])) ? $_POST['prof_id'] : $_GET['id'];
 
         $sql = "SELECT * FROM professor WHERE prof_id = ?";
+        $Obj = $db->GetObject($sql, array($this->prof_id));
 
-        $Obj = $db->GetObject($sql, array($prof_id));
-
-        return new ProfessorModel($Obj->prof_id, $Obj->prof_nome);
+        if ($Obj) {
+            return new ProfessorModel($Obj->prof_id, $Obj->prof_nome);
+        } else {
+            return false;
+        }
     }
-    
-    function ListaProfessor() {
+
+    function ListaProfessor()
+    {
         global $db;
 
         return $db->GetObjectList('SELECT * FROM professor');
     }
-    
+
+    function AdicionarDisciplina()
+    {
+        global $db;
+
+        $sql = "INSERT INTO responsavel (respo_disciplinas_disc_codigo, respo_prof_id) VALUES (?,?)";
+
+        foreach ($_POST['prof_disc'] as $disciplinas) {
+            $db->ExecutaSQL($sql, array($disciplinas, $this->prof_id));
+        }
+
+        return true;
+    }
+
 }

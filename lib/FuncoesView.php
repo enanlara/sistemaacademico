@@ -1,6 +1,6 @@
 <?php
 
-function MontaFormulario($ArrayCampos, $Model)
+function MontaFormulario($ArrayCampos, $Model = null)
 {
 
     $html = '';
@@ -14,6 +14,8 @@ function MontaFormulario($ArrayCampos, $Model)
                             <input type='{$campo['type']}' name='{$campo['name']}' value='{$Model->$campo['name']}' class='form-control'>";
 
                 break;
+            
+            
         }
 
     }
@@ -23,13 +25,16 @@ function MontaFormulario($ArrayCampos, $Model)
     return $html;
 }
 
-function MontaBotoes($acao)
+function MontaBotoes($modo)
 {
-var_dump($acao);
-    switch ($acao) {
+    switch ($modo) {
         case 'consulta':
 
-            $botao = "<button type=\"submit\" class=\"btn btn-primary\" value=\"consulta\" name=\"acao\"> Consultar </button>";
+            $botao = "
+        <button type=\"submit\" name=\"acao\" value=\"excluir\" id=\"BtnExcluir\" class=\"btn btn-danger\"> Excluir </button>       
+        <button type=\"submit\" name=\"acao\" value=\"editar\" id=\"BtnEditar\" class=\"btn btn-primary\"> Editar </button>
+        <a href='?modo=form' id='BtnNovo' class=\"btn btn-primary\"> Novo</a>
+        ";
 
             break;
 
@@ -42,7 +47,7 @@ var_dump($acao);
 
             break;
 
-        case 'cadastro':
+        case 'form':
 
             $botao = "
                         <button type=\"button\" onclick=\"window.history.back();\" class=\"btn btn-default\"> Voltar</button>

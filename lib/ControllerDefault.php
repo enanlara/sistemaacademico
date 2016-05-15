@@ -6,7 +6,7 @@ class ControllerDefault {
         
     }
 
-    function MostraView($modulo, $Model = null, $acao = null) {
+    function MostraView($modulo, $Model = null, $modo = null) {
 
             include $modulo . '.php';
 

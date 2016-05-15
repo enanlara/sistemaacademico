@@ -1,3 +1,6 @@
+<?php
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +56,7 @@
                 </li>
                 <ul class="sub-menu collapse" id="professor">
                     <li class="active"> <a href="/modules/professor/professor.php?modo=consulta"> Consultar </a></li>
-                    <li><a href="/modules/professor/professor.php?modo=cadastro">Cadastrar Novo</a></li>
+                    <li><a href="/modules/professor/professor.php?modo=form">Cadastrar Novo</a></li>
                 </ul>
 
                 <li data-toggle="collapse" data-target="#cursos" class="collapsed active">

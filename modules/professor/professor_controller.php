@@ -7,32 +7,31 @@ class ProfessorController extends ControllerDefault
 
     function __construct()
     {
-        //var_dump($_POST);
+
         $this->ProfessorAdo = new ProfessorAdo();
         $this->ProfessorModel = new ProfessorModel();
 
-        //$acao = (isset($_GET['acao'])) ? $_GET['acao'] : $_POST['acao'];
-
-        if (isset($_POST['acao'])) {
-            $this->acao = $_POST['acao'];
-        } else {
-            $this->acao = null;
-        }
+        $this->acao = (isset($_POST['acao'])) ? $_POST['acao'] : null;
 
         switch ($this->acao) {
-            case 'editar':
-
-                $this->Editar();
-
-                break;
 
             case 'salvar':
-                $this->Cadastro();
 
-                break;
+                // Caso já exista, fazer uma alteração
+                if ($this->Consulta()) {
 
-            case 'alterar':
-                $this->Alterar();
+                    if ($this->Alterar()) {
+                        Redirecionar('professor');
+                    }
+
+                    // Se não existir, é um novo cadastro
+                } else {
+
+                    if ($this->Cadastro()) {
+                        Redirecionar('professor');
+                    }
+                }
+
 
                 break;
 
@@ -42,36 +41,54 @@ class ProfessorController extends ControllerDefault
                 break;
 
             case 'adicionar_disc':
-                $this->Consulta();
+                if ($this->AdicionarDisc()) {
+                    Redirecionar('professor');
+                }
 
                 break;
 
-            default:
-                $modo = (isset($_GET['modo'])) ? $_GET['modo'] : null;
+        }
 
-                switch ($modo) {
-                    case 'consulta':
-                        parent::MostraView('professor_view_consulta', $this->ProfessorModel, 'consulta');
+        $modo = (isset($_GET['modo'])) ? $_GET['modo'] : null;
 
-                        break;
+        switch ($modo) {
+            case 'consulta':
+                parent::MostraView('professor_view_consulta', $this->ProfessorModel, $modo);
 
-                    case 'cadastro':
-                        parent::MostraView('professor_view_cadastro', $this->ProfessorModel, 'cadastro');
+                break;
 
+            // Caso seja form, mostrar o formulário
+            case 'form':
+
+                // Caso seja uma edição, fazer consulta
+                if (isset($_GET['id'])) {
+                    $this->Consulta();
                 }
+
+                parent::MostraView('professor_view_form', $this->ProfessorModel, $modo);
+
+                break;
+
+            case 'responsavel':
+
+                $this->Consulta();
+
+                parent::MostraView('professor_view_responsavel', $this->ProfessorModel, $modo);
 
                 break;
         }
 
-
     }
 
-    function Editar()
+
+    function Consulta()
     {
         $this->ProfessorModel = $this->ProfessorAdo->ConsultaProfessor();
 
         if ($this->ProfessorModel) {
             return true;
+        } else {
+            return false;
         }
     }
 
@@ -82,6 +99,8 @@ class ProfessorController extends ControllerDefault
 
         if ($res) {
             return true;
+        } else {
+            return false;
         }
 
     }
@@ -106,5 +125,13 @@ class ProfessorController extends ControllerDefault
 
     }
 
-
+    function AdicionarDisc()
+    {
+        
+        if ($this->ProfessorAdo->AdicionarDisciplina()) {
+            return true;
+        }
+    }
 }
+
+
