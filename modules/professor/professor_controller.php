@@ -14,14 +14,15 @@ class ProfessorController extends ControllerDefault
         //$acao = (isset($_GET['acao'])) ? $_GET['acao'] : $_POST['acao'];
 
         if (isset($_POST['acao'])) {
-            $acao = $_POST['acao'];
+            $this->acao = $_POST['acao'];
         } else {
-            $acao = null;
+            $this->acao = null;
         }
 
-        switch ($acao) {
-            case 'consulta':
-                $this->Consulta();
+        switch ($this->acao) {
+            case 'editar':
+
+                $this->Editar();
 
                 break;
 
@@ -57,24 +58,21 @@ class ProfessorController extends ControllerDefault
                     case 'cadastro':
                         parent::MostraView('professor_view_cadastro', $this->ProfessorModel, 'cadastro');
 
-                        break;
-
-                    case 'responsavel':
-                        parent::MostraView('professor_view_consulta', $this->ProfessorModel, 'adicionar_disc');
                 }
 
                 break;
         }
 
-        parent::MostraView('professor_view_consulta', $this->ProfessorModel, $this->acao);
 
     }
 
-    function Consulta()
+    function Editar()
     {
         $this->ProfessorModel = $this->ProfessorAdo->ConsultaProfessor();
 
-
+        if ($this->ProfessorModel) {
+            return true;
+        }
     }
 
     function Cadastro()
@@ -83,7 +81,7 @@ class ProfessorController extends ControllerDefault
         $res = $this->ProfessorAdo->CadastraProfessor();
 
         if ($res) {
-            parent::MostraView('professor_view_consulta', $this->ProfessorModel, 'consulta');
+            return true;
         }
 
     }
@@ -93,20 +91,20 @@ class ProfessorController extends ControllerDefault
         $res = $this->ProfessorAdo->AlteraProfessor();
 
         if ($res) {
-            parent::MostraView('professor_view_consulta', $this->ProfessorModel, 'consulta');
+            return true;
         }
     }
 
-    function Excluir() {
+    function Excluir()
+    {
 
         $res = $this->ProfessorAdo->DeletaProfessor();
 
         if ($res) {
-            parent::MostraView('professor_view_consulta', $this->ProfessorModel, 'consulta');
+            return true;
         }
 
     }
-
 
 
 }

@@ -25,7 +25,7 @@ function MontaFormulario($ArrayCampos, $Model)
 
 function MontaBotoes($acao)
 {
-
+var_dump($acao);
     switch ($acao) {
         case 'consulta':
 

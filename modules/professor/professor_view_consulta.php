@@ -10,10 +10,10 @@ $ProfessorAdo = new ProfessorAdo();
     <br>
     <form action="" method="POST" enctype="multipart/form-data">
         <select class="form-control" name="prof_id">
+            <option value''> Selecione um professor.. </option>
             <?php
             $Lista = $ProfessorAdo->ListaProfessor();
 
-            echo "<option value''> Selecione uma opção abaixo.. </option>";
             foreach ($Lista as $professores) {
                 echo "<option value='{$professores->prof_id}'> $professores->prof_nome </option>";
             }
@@ -22,7 +22,10 @@ $ProfessorAdo = new ProfessorAdo();
 
         <br>
 
-        <?= MontaBotoes($acao) ?>
+        <button type="button" onclick="window.history.back();" class="btn btn-default"> Voltar</button>
+        <button type="submit" name="acao" value="editar" class="btn btn-primary"> Editar </button>
+        <button type="submit" name="acao" value="adicionar_disc" class="btn btn-primary"> Adicionar disciplinas </button>
+
     </form>
 <?php
 get_footer();
