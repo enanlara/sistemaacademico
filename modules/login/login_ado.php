@@ -3,8 +3,9 @@
 class LoginAdo extends DB {
     
     function Login() {
-        global $DB;
+        global $db;
 
+        return true;
 
         $email = $_POST['email'];
         $senha = $_POST['senha'];
@@ -12,7 +13,7 @@ class LoginAdo extends DB {
         $senha = sha1($senha);
     
         $sql = "SELECT * FROM usuarios WHERE usua_email = ?   ";
-        $resultado = $DB->GetObject($sql, array($email));
+        $resultado = $db->GetObject($sql, array($email));
         
         if($resultado->usua_senha == $senha) {
             return TRUE;

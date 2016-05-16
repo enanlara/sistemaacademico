@@ -6,8 +6,10 @@ class ControllerDefault {
         
     }
 
-    function MostraView($modulo, $HomeModel = null) {
-        include $_SERVER['DOCUMENT_ROOT'] . '/modules/' . $modulo . '/' . $modulo . '_view.php';
+    function MostraView($modulo, $Model = null, $modo = null) {
+
+            include $modulo . '.php';
+
     }
 
 }

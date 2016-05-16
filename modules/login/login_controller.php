@@ -6,9 +6,8 @@ class LoginController extends ControllerDefault {
 
     function __construct() {
         global $Sessao;
+        
 
-        error_reporting(E_ALL);
-        ini_set("display_errors", 1);
 
         $this->LoginAdo = new LoginAdo();
         $this->LoginModel = new LoginModel();
@@ -29,7 +28,7 @@ class LoginController extends ControllerDefault {
                 break;
         }
 
-        parent::MostraView('login');
+        parent::MostraView('login_view');
     }
 
 }

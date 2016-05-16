@@ -1,10 +1,12 @@
 <?php
 
-class DB {
+class DB
+{
 
     public $db, $sql, $pdo;
 
-    function Conecta($servidor, $banco, $usuario, $senha) {
+    function Conecta($servidor, $banco, $usuario, $senha)
+    {
         global $pdo;
 
         try {
@@ -14,20 +16,23 @@ class DB {
 
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-            
+
+            return true;
         } catch (PDOException $ex) {
 
             die('Erro ao conectar com o banco de dados, mais informações: <br><br> ' . $ex->getMessage());
         }
     }
 
-    function GetLastInsertId() {
+    function GetLastInsertId()
+    {
         global $pdo;
 
         return $pdo->lastInsertId();
     }
 
-    function GetObject($sql, $valores = array()) {
+    function GetObject($sql, $valores = array())
+    {
         global $pdo;
 
         try {
@@ -47,7 +52,29 @@ class DB {
         }
     }
 
-    function ExecutaSQL($sql, $valores = array()) {
+    function GetObjectList($sql, $valores = array())
+    {
+        global $pdo, $config;
+
+        try {
+            $query = $pdo->prepare($sql);
+
+            if (count($valores) == 0) {
+                $query->execute();
+            } else {
+                $query->execute($valores);
+            }
+
+            return $query->fetchAll(PDO::FETCH_OBJ);
+
+        } catch (Exception $e) {
+            return false;
+        }
+
+    }
+
+    function ExecutaSQL($sql, $valores = array())
+    {
         global $pdo;
 
         try {
@@ -58,6 +85,9 @@ class DB {
             } else {
                 $query->execute($valores);
             }
+
+            return true;
+
         } catch (Exception $ex) {
             echo $ex->getMessage();
 
